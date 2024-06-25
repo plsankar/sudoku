@@ -2,6 +2,8 @@ import { useGamePlayStore } from "./stores/gameplay";
 import { useGameStore } from "./stores/game";
 import { Button } from "./components/ui/button";
 import { Card, CardContent } from "./components/ui/card";
+import { Switch } from "./components/ui/switch";
+import { ModeToggle } from "./components/mode-toggle";
 
 const OptionsBox = () => {
     const {
@@ -26,64 +28,54 @@ const OptionsBox = () => {
             <CardContent className="p-5">
                 <div className="flex flex-col gap-5 min-w-64">
                     {finished ? null : <div>{fmtMSS(timer)}</div>}
-                    <div className="flex items-center mb-4">
-                        <input
+                    <div className="flex items-center">
+                        <Switch
                             id="highlightSameRow"
-                            type="checkbox"
                             checked={highlightSameRow}
-                            onChange={() => toggleHighlightSameRow()}
-                            className="w-4 h-4 text-blue-600 border-gray-300 rounded form-checkbox focus:ring-blue-500 focus:ring-2"
+                            onCheckedChange={() => toggleHighlightSameRow()}
                         />
                         <label
                             htmlFor="highlightSameRow"
-                            className="ml-2 text-sm font-medium text-gray-900"
+                            className="ml-2 text-xs"
                         >
                             Highlight Current Row
                         </label>
                     </div>
-
-                    <div className="flex items-center mb-4">
-                        <input
+                    <div className="flex items-center">
+                        <Switch
                             id="highlightSameCol"
-                            type="checkbox"
                             checked={highlightSameCol}
-                            onChange={() => toggleHighlightSameCol()}
-                            className="w-4 h-4 text-blue-600 border-gray-300 rounded form-checkbox focus:ring-blue-500 focus:ring-2"
+                            onCheckedChange={() => toggleHighlightSameCol()}
                         />
                         <label
                             htmlFor="highlightSameCol"
-                            className="ml-2 text-sm font-medium text-gray-900"
+                            className="ml-2 text-xs"
                         >
                             Highlight Current Column
                         </label>
                     </div>
-
-                    <div className="flex items-center mb-4">
-                        <input
+                    <div className="flex items-center">
+                        <Switch
                             id="highlightSameBlock"
-                            type="checkbox"
                             checked={highlightSameBlock}
-                            onChange={() => toggleHighlightSameBlock()}
-                            className="w-4 h-4 text-blue-600 border-gray-300 rounded form-checkbox focus:ring-blue-500 focus:ring-2"
+                            onCheckedChange={() => toggleHighlightSameBlock()}
                         />
                         <label
                             htmlFor="highlightSameBlock"
-                            className="ml-2 text-sm font-medium text-gray-900"
+                            className="ml-2 text-xs"
                         >
                             Highlight Current Block
                         </label>
                     </div>
-                    <div className="flex items-center mb-4">
-                        <input
+                    <div className="flex items-center">
+                        <Switch
                             id="enableErrorChecking"
-                            type="checkbox"
                             checked={enableErrorChecking}
-                            onChange={() => toggleErrorChecking()}
-                            className="w-4 h-4 text-red-600 border-gray-300 rounded form-checkbox focus:ring-red-500 focus:ring-2"
+                            onCheckedChange={() => toggleErrorChecking()}
                         />
                         <label
                             htmlFor="enableErrorChecking"
-                            className="ml-2 text-sm font-medium text-gray-900"
+                            className="ml-2 text-xs"
                         >
                             Enable Error Checking
                         </label>
@@ -96,6 +88,10 @@ const OptionsBox = () => {
                         <Button variant={"secondary"} onClick={finish}>
                             Finish
                         </Button>
+                    </div>
+
+                    <div>
+                        <ModeToggle />
                     </div>
                 </div>
             </CardContent>
