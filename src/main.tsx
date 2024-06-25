@@ -7,14 +7,10 @@ import ReactDOM from "react-dom/client";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-        <div className="min-h-sceen min-w-screen p-10 flex justify-center items-center">
+        <div className="flex items-center justify-center p-10 min-h-sceen min-w-screen">
             <div className="flex gap-3">
-                <div className="border-b border-r">
-                    <Board />
-                </div>
-                <div className="border">
-                    <OptionsBox />
-                </div>
+                <Board />
+                <OptionsBox />
             </div>
         </div>
     </React.StrictMode>

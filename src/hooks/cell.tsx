@@ -81,8 +81,8 @@ const Cell: FC<{
     return (
         <div
             className={twMerge(
-                `h-14 w-14 overflow-hidden bg-white relative`,
-                index === 0 && "border-l border-t"
+                `h-14 w-14 overflow-hidden bg-white relative`
+                // index === 0 && "border-l border-t"
             )}
         >
             <input
@@ -93,32 +93,35 @@ const Cell: FC<{
                 onBlur={() => setActiveCell(-1)}
                 onFocus={() => setActiveCell(index)}
                 className={twMerge(
-                    "w-full h-full text-center bg-transparent outline-none focus-visible:outline-none",
-                    index % 9 === 2 ? "border-r border-r-black" : "",
-                    index % 9 === 5 ? "border-r border-r-black" : "",
+                    "w-full h-full text-center bg-blue-50 outline-none focus-visible:outline-none",
+                    //
+                    index % 9 === 2 ? "border-r-2 border-r-background" : "",
+                    index % 9 === 5 ? "border-r-2 border-r-background" : "",
                     (index / 9) * 2 >= 4 && (index / 9) * 2 < 6
-                        ? "border-b border-b-black"
+                        ? "border-b-2 border-b-background"
                         : "",
                     (index / 9) * 5 >= 25 && (index / 9) * 5 < 30
-                        ? "border-b border-b-black"
+                        ? "border-b-2 border-b-background"
                         : "",
+
+                    //
                     highlightSameCol &&
                         isSameCol(index, activeCell) &&
-                        "bg-blue-50",
+                        "bg-blue-100",
                     highlightSameRow &&
                         isSameRow(index, activeCell) &&
-                        "bg-blue-50",
+                        "bg-blue-100",
                     highlightSameBlock &&
                         isSameBlock(index, activeCell) &&
-                        "bg-blue-50",
-                    activeCell === index && "bg-blue-200",
-                    cells[activeCell] &&
-                        cells[activeCell] === cells[index] &&
                         "bg-blue-100",
-                    enableErrorChecking &&
+
+                    //
+                    activeCell === index && "bg-blue-200",
+                    !prefilled &&
+                        enableErrorChecking &&
                         errors.indexOf(index) > -1 &&
-                        "bg-red-300",
-                    prefilled && "bg-gray-200"
+                        "bg-red-200",
+                    prefilled && "text-blue-500"
                 )}
                 onChange={handleOnCellValueChange(index)}
                 {...handlers}
