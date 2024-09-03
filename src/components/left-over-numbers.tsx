@@ -1,6 +1,7 @@
 import { useGameStore } from "@/stores/game";
 import { Card, CardContent } from "./ui/card";
 import { useMemo } from "react";
+import clsx from "clsx";
 
 const LeftOverNumbers = () => {
     const { cells } = useGameStore();
@@ -22,7 +23,10 @@ const LeftOverNumbers = () => {
                         return (
                             <div
                                 key={index}
-                                className="flex flex-col p-3 text-center bg-gray-50"
+                                className={clsx(
+                                    "flex flex-col p-3 text-center",
+                                    leftover.count == 0 && "opacity-0"
+                                )}
                             >
                                 <span className="mb-2 text-xl">
                                     {leftover.number}
