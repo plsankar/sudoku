@@ -1,5 +1,5 @@
 import { ChangeEventHandler, FC, useEffect, useMemo, useRef } from "react";
-import { isSameBlock, isSameCol, isSameRow } from "../utils";
+import { isSameBlock, isSameCol, isSameRow, isSameValue } from "../utils";
 
 import { twMerge } from "tailwind-merge";
 import { useGamePlayStore } from "../stores/gameplay";
@@ -121,7 +121,10 @@ const Cell: FC<{
                         enableErrorChecking &&
                         errors.indexOf(index) > -1 &&
                         "bg-red-200",
-                    prefilled && "text-blue-500"
+                    prefilled && "text-blue-500",
+
+                    // TODO: add it as a option
+                    isSameValue(cells, activeCell, index) && "bg-gray-200"
                 )}
                 onChange={handleOnCellValueChange(index)}
                 {...handlers}

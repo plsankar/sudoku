@@ -12,6 +12,14 @@ export function isSameBlock(index: number, target: number) {
     return getBlockIndex(index) === getBlockIndex(target);
 }
 
+export function isSameValue(
+    cells: (number | null)[],
+    index: number,
+    target: number
+) {
+    return cells[index] === cells[target];
+}
+
 export function getCol(index: number) {
     return index % 9;
 }
