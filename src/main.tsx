@@ -11,17 +11,15 @@ import Navbar from "./components/navbar";
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
         <ThemeProvider>
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-4xl px-4 mx-auto">
                 <Navbar />
-                <div className="flex items-center justify-center p-10 min-h-sceen min-w-screen">
-                    <div className="flex gap-3">
-                        <div className="flex flex-col gap-5">
-                            <Board />
-                            <LeftOverNumbers />
-                        </div>
-                        <div>
-                            <OptionsBox />
-                        </div>
+                <div className="grid grid-cols-1 gap-5 py-10 sm:grid-cols-5 min-h-sceen min-w-screen">
+                    <div className="flex flex-col gap-5 sm:col-span-3">
+                        <Board />
+                        <LeftOverNumbers />
+                    </div>
+                    <div className="max-w-sm col-span-2">
+                        <OptionsBox />
                     </div>
                 </div>
             </div>

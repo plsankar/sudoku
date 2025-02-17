@@ -44,21 +44,13 @@ const Board = () => {
     }, [timer, setTimer, finished]);
 
     return (
-        <div>
+        <div className="max-w-xl">
             <TimerClock />
-            <Card className="overflow-hidden">
-                <CardContent className="p-0">
-                    <div className="grid grid-cols-9 gap-[2px] overflow-hidden">
-                        {cells.map((cell, index) => (
-                            <Cell
-                                cell={cell}
-                                index={index}
-                                key={`cell-${index}`}
-                            />
-                        ))}
-                    </div>
-                </CardContent>
-            </Card>
+            <div className="grid grid-cols-9 gap-[2px] overflow-hidden rounded-lg bg-background border">
+                {cells.map((cell, index) => (
+                    <Cell cell={cell} index={index} key={`cell-${index}`} />
+                ))}
+            </div>
         </div>
     );
 };

@@ -81,54 +81,56 @@ const Cell: FC<{
     return (
         <div
             className={twMerge(
-                `h-14 w-14 overflow-hidden bg-white relative`
+                `pt-[100%] overflow-hidden bg-white relative`
                 // index === 0 && "border-l border-t"
             )}
         >
-            <input
-                readOnly={prefilled}
-                ref={inputElRef}
-                type="text"
-                value={cell || ""}
-                onBlur={() => setActiveCell(-1)}
-                onFocus={() => setActiveCell(index)}
-                className={twMerge(
-                    "w-full h-full text-center bg-blue-50 dark:bg-gray-900 outline-none focus-visible:outline-none",
-                    //
-                    index % 9 === 2 ? "border-r-2 border-r-background" : "",
-                    index % 9 === 5 ? "border-r-2 border-r-background" : "",
-                    (index / 9) * 2 >= 4 && (index / 9) * 2 < 6
-                        ? "border-b-2 border-b-background"
-                        : "",
-                    (index / 9) * 5 >= 25 && (index / 9) * 5 < 30
-                        ? "border-b-2 border-b-background"
-                        : "",
+            <div className="absolute inset-0">
+                <input
+                    readOnly={prefilled}
+                    ref={inputElRef}
+                    type="text"
+                    value={cell || ""}
+                    onBlur={() => setActiveCell(-1)}
+                    onFocus={() => setActiveCell(index)}
+                    className={twMerge(
+                        "w-full h-full text-center bg-blue-50 dark:bg-gray-900 outline-none focus-visible:outline-none",
+                        //
+                        index % 9 === 2 ? "border-r-2 border-r-background" : "",
+                        index % 9 === 5 ? "border-r-2 border-r-background" : "",
+                        (index / 9) * 2 >= 4 && (index / 9) * 2 < 6
+                            ? "border-b-2 border-b-background"
+                            : "",
+                        (index / 9) * 5 >= 25 && (index / 9) * 5 < 30
+                            ? "border-b-2 border-b-background"
+                            : "",
 
-                    //
-                    highlightSameCol &&
-                        isSameCol(index, activeCell) &&
-                        "bg-blue-100 dark:bg-gray-950/95",
-                    highlightSameRow &&
-                        isSameRow(index, activeCell) &&
-                        "bg-blue-100 dark:bg-gray-950/95",
-                    highlightSameBlock &&
-                        isSameBlock(index, activeCell) &&
-                        "bg-blue-100 dark:bg-gray-950/95",
+                        //
+                        highlightSameCol &&
+                            isSameCol(index, activeCell) &&
+                            "bg-blue-100 dark:bg-gray-950/95",
+                        highlightSameRow &&
+                            isSameRow(index, activeCell) &&
+                            "bg-blue-100 dark:bg-gray-950/95",
+                        highlightSameBlock &&
+                            isSameBlock(index, activeCell) &&
+                            "bg-blue-100 dark:bg-gray-950/95",
 
-                    //
-                    activeCell === index && "bg-blue-200 dark:bg-gray-950",
-                    !prefilled &&
-                        enableErrorChecking &&
-                        errors.indexOf(index) > -1 &&
-                        "bg-red-300 dark:bg-red-400",
-                    prefilled && "text-blue-500"
+                        //
+                        activeCell === index && "bg-blue-200 dark:bg-gray-950",
+                        !prefilled &&
+                            enableErrorChecking &&
+                            errors.indexOf(index) > -1 &&
+                            "bg-red-300 dark:bg-red-400",
+                        prefilled && "text-blue-500"
 
-                    // TODO: add it as a option
-                    // isSameValue(cells, activeCell, index) && "bg-gray-200"
-                )}
-                onChange={handleOnCellValueChange(index)}
-                {...handlers}
-            />
+                        // TODO: add it as a option
+                        // isSameValue(cells, activeCell, index) && "bg-gray-200"
+                    )}
+                    onChange={handleOnCellValueChange(index)}
+                    {...handlers}
+                />
+            </div>
         </div>
     );
 };
