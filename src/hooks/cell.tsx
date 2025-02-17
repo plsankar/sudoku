@@ -93,7 +93,7 @@ const Cell: FC<{
                 onBlur={() => setActiveCell(-1)}
                 onFocus={() => setActiveCell(index)}
                 className={twMerge(
-                    "w-full h-full text-center bg-blue-50 outline-none focus-visible:outline-none",
+                    "w-full h-full text-center bg-blue-50 dark:bg-gray-900 outline-none focus-visible:outline-none",
                     //
                     index % 9 === 2 ? "border-r-2 border-r-background" : "",
                     index % 9 === 5 ? "border-r-2 border-r-background" : "",
@@ -107,24 +107,24 @@ const Cell: FC<{
                     //
                     highlightSameCol &&
                         isSameCol(index, activeCell) &&
-                        "bg-blue-100",
+                        "bg-blue-100 dark:bg-gray-950/95",
                     highlightSameRow &&
                         isSameRow(index, activeCell) &&
-                        "bg-blue-100",
+                        "bg-blue-100 dark:bg-gray-950/95",
                     highlightSameBlock &&
                         isSameBlock(index, activeCell) &&
-                        "bg-blue-100",
+                        "bg-blue-100 dark:bg-gray-950/95",
 
                     //
-                    activeCell === index && "bg-blue-200",
+                    activeCell === index && "bg-blue-200 dark:bg-gray-950",
                     !prefilled &&
                         enableErrorChecking &&
                         errors.indexOf(index) > -1 &&
-                        "bg-red-200",
-                    prefilled && "text-blue-500",
+                        "bg-red-300 dark:bg-red-400",
+                    prefilled && "text-blue-500"
 
                     // TODO: add it as a option
-                    isSameValue(cells, activeCell, index) && "bg-gray-200"
+                    // isSameValue(cells, activeCell, index) && "bg-gray-200"
                 )}
                 onChange={handleOnCellValueChange(index)}
                 {...handlers}
