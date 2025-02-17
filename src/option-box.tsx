@@ -17,17 +17,12 @@ const OptionsBox = () => {
         toggleErrorChecking,
     } = useGamePlayStore();
 
-    const { timer, reset, finish, finished } = useGameStore();
-
-    function fmtMSS(s: number) {
-        return (s - (s %= 60)) / 60 + (9 < s ? ":" : ":0") + s;
-    }
+    const { reset, finish } = useGameStore();
 
     return (
         <Card>
             <CardContent className="p-5">
                 <div className="flex flex-col gap-5 min-w-64">
-                    {finished ? null : <div>{fmtMSS(timer)}</div>}
                     <div className="flex items-center">
                         <Switch
                             id="highlightSameRow"

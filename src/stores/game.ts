@@ -84,7 +84,6 @@ export const useGameStore = create<GameStore>()((set) => ({
     finish: () =>
         set((state) => ({
             cells: state.cellsOriginal,
-            timer: -1,
             finished: true,
         })),
 }));

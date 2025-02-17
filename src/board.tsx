@@ -9,6 +9,7 @@ import _ from "lodash";
 import { useEffect } from "react";
 import { useGameStore } from "./stores/game";
 import { Card, CardContent } from "./components/ui/card";
+import TimerClock from "./components/timer-clock";
 
 const Board = () => {
     const { cells, setErrors, init, setTimer, timer, finished } =
@@ -43,15 +44,22 @@ const Board = () => {
     }, [timer, setTimer, finished]);
 
     return (
-        <Card className="overflow-hidden">
-            <CardContent className="p-0">
-                <div className="grid grid-cols-9 gap-[2px] overflow-hidden">
-                    {cells.map((cell, index) => (
-                        <Cell cell={cell} index={index} key={`cell-${index}`} />
-                    ))}
-                </div>
-            </CardContent>
-        </Card>
+        <div>
+            <TimerClock />
+            <Card className="overflow-hidden">
+                <CardContent className="p-0">
+                    <div className="grid grid-cols-9 gap-[2px] overflow-hidden">
+                        {cells.map((cell, index) => (
+                            <Cell
+                                cell={cell}
+                                index={index}
+                                key={`cell-${index}`}
+                            />
+                        ))}
+                    </div>
+                </CardContent>
+            </Card>
+        </div>
     );
 };
 
