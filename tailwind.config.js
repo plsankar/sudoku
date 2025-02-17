@@ -1,3 +1,5 @@
+import defaultTheme from "tailwindcss/defaultTheme";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     darkMode: ["class"],
@@ -18,6 +20,11 @@ module.exports = {
             },
         },
         extend: {
+            fontFamily: {
+                serif: ["'Sora'", ...defaultTheme.fontFamily.serif],
+                sans: ["'Inter'", ...defaultTheme.fontFamily.sans],
+                mono: ["'IBM Plex Mono'", ...defaultTheme.fontFamily.mono],
+            },
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
