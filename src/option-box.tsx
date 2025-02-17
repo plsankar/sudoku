@@ -1,21 +1,8 @@
-import { useGamePlayStore } from "./stores/gameplay";
 import { useGameStore } from "./stores/game";
 import { Button } from "./components/ui/button";
 import { Card, CardContent } from "./components/ui/card";
-import { Switch } from "./components/ui/switch";
 
 const OptionsBox = () => {
-    const {
-        highlightSameRow,
-        highlightSameCol,
-        highlightSameBlock,
-        enableErrorChecking,
-        toggleHighlightSameRow,
-        toggleHighlightSameCol,
-        toggleHighlightSameBlock,
-        toggleErrorChecking,
-    } = useGamePlayStore();
-
     const { reset, finish } = useGameStore();
 
     return (

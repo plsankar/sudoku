@@ -2,7 +2,6 @@ import {
     Drawer,
     DrawerClose,
     DrawerContent,
-    DrawerDescription,
     DrawerFooter,
     DrawerHeader,
     DrawerTitle,
@@ -12,7 +11,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { SettingsIcon } from "lucide-react";
 import { useGamePlayStore } from "@/stores/gameplay";
-import { Switch } from "@/components/ui/switch";
 import SettingsSwitchItem from "./settings-switch-item";
 
 const SettingsDrawer = () => {

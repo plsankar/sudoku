@@ -1,5 +1,5 @@
 import { ChangeEventHandler, FC, useEffect, useMemo, useRef } from "react";
-import { isSameBlock, isSameCol, isSameRow, isSameValue } from "../utils";
+import { isSameBlock, isSameCol, isSameRow } from "../utils";
 
 import { twMerge } from "tailwind-merge";
 import { useGamePlayStore } from "../stores/gameplay";
