@@ -8,7 +8,6 @@ import Cell from "./hooks/cell";
 import _ from "lodash";
 import { useEffect } from "react";
 import { useGameStore } from "./stores/game";
-import { Card, CardContent } from "./components/ui/card";
 import TimerClock from "./components/timer-clock";
 
 const Board = () => {
