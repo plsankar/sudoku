@@ -1,5 +1,4 @@
 import { useGameStore } from "@/stores/game";
-import { Card, CardContent } from "./ui/card";
 import { useMemo } from "react";
 import clsx from "clsx";
 
@@ -16,30 +15,26 @@ const LeftOverNumbers = () => {
     }, [cells]);
 
     return (
-        <Card>
-            <CardContent className="p-3">
-                <div className="grid grid-cols-9">
-                    {leftovers.map((leftover, index) => {
-                        return (
-                            <div
-                                key={index}
-                                className={clsx(
-                                    "flex flex-col p-3 text-center",
-                                    leftover.count == 0 && "opacity-0"
-                                )}
-                            >
-                                <span className="mb-2 text-xl">
-                                    {leftover.number}
-                                </span>
-                                <span className="text-base text-gray-500">
-                                    {leftover.count}
-                                </span>
-                            </div>
-                        );
-                    })}
-                </div>
-            </CardContent>
-        </Card>
+        <div className="grid grid-cols-9 border divide-x rounded-lg">
+            {leftovers.map((leftover, index) => {
+                return (
+                    <div
+                        key={index}
+                        className={clsx(
+                            "flex flex-col text-center",
+                            leftover.count == 0 && "opacity-0"
+                        )}
+                    >
+                        <span className="p-3 text-lg leading-none">
+                            {leftover.number}
+                        </span>
+                        <span className="p-3 text-sm leading-none text-gray-500 bg-primary/5">
+                            {leftover.count}
+                        </span>
+                    </div>
+                );
+            })}
+        </div>
     );
 };
 
